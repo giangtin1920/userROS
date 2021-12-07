@@ -2,6 +2,14 @@
 
 ## 1. Tạo workspace
 
+    mkdir catkin_ws
+    cd catkin_ws
+    mkdir src
+    cd src
+    catkin_init_workspace
+    cd ..
+    catkin_make
+
 ## 2. Lệnh ROS
     Cấp quyền:                    sudo chmod
     Quay về thư mục home          cd 
@@ -52,5 +60,34 @@ Upgrade là để cập nhật phiên bản mới nhất. Khi cập nhật Gazeb
 
 [MQTT Websocket Client (hivemq.com)](https://maqiatto.com/login)
 
-## 6. 
+## 6. Các gói tin cần thiết
+
+    sudo apt-get install ros-melodic-serial
+    sudo apt-get install ros-melodic-socketcan-interface
+    sudo apt-get install ros-melodic-socketcan-bridge
+    sudo apt-get install can-utils
+    sudo apt-get install ros-melodic-serial
+
+    Nếu cần sử dụng giao tiếp CAN thì cài:
+    sudo apt-get install ros-melodic-socketcan-interface 
+    sudo apt-get install ros-melodic-socketcan-bridge
+    sudo apt-get install can-utils
+
+## 7. Tạo public/subscribe/serial node
+
+[radar package](https://github.com/giangtin1920/radar_pkg)
+
+## 8. Cài SSH
+
+https://wiki.matbao.net/ssh-la-gi-cach-dung-ssh-trao-doi-du-lieu-voi-server-linux/
+
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install openssh-server
+    sudo nano /etc/ssh/sshd_config
+    sudo service ssh status
+    
+   
+
+
 
