@@ -1,5 +1,24 @@
 # userROS
 
+[1. Tạo workspace](#Taoworkspace)
+
+[2. Lệnh ROS](#LenhROS)
+
+[3. Đổi tên USB portname](#doitenUSB)
+
+[4. Gazebo khi mô phỏng USV](#Gazebo)
+
+[5. Cloud Server](#CloudServer)
+
+[6. Các gói tin cần thiết](#goitin)
+
+[7. Tạo public/subscribe/serial node](#Taonode)
+
+[8. Cài SSH](#SSH)
+
+[9. Submodule](#Submodules)
+
+<a name = "Taoworkspace"></a>
 ## 1. Tạo workspace
 
     mkdir catkin_ws
@@ -9,7 +28,8 @@
     catkin_init_workspace
     cd ..
     catkin_make
-
+    
+<a name = "LenhROS"></a>
 ## 2. Lệnh ROS
     Cấp quyền:                    sudo chmod
     Quay về thư mục home          cd 
@@ -23,6 +43,7 @@
     Copy sang máy tính khác       Scp -r qgroundcontrol   giangtin@[ip]
     Cấp quyền để đọc usb          Sudo chmod 777 /dev/
 
+<a name = "doitenUSB"></a>
 ## 3. Đổi tên USB portname:
 
     1. Xem tên của cổng USB:
@@ -46,6 +67,7 @@
     sudo udevadm trigger
     ls -l /dev/ttyUSB*
     
+<a name = "Gazebo"></a>
 ## 4. Gazebo khi mô phỏng USV
 
 Update là khi cài 1 gói nào đó thì nó sẽ cập nhật lại thư viện và kiểm tra thiếu gói hay có phiên bản mới hơn không.
@@ -54,12 +76,14 @@ Upgrade là để cập nhật phiên bản mới nhất. Khi cập nhật Gazeb
     sudo apt update
     sudo apt upgrade
     
+<a name = "CloudServer"></a>
 ## 5. Cloud Server
 
 [Broker Configuration - MaQiaTTo Free Online MQTT Broker](http://www.hivemq.com/demos/websocket-client/)
 
 [MQTT Websocket Client (hivemq.com)](https://maqiatto.com/login)
 
+<a name = "goitin"></a>
 ## 6. Các gói tin cần thiết
 
     sudo apt-get install ros-melodic-serial
@@ -73,10 +97,12 @@ Upgrade là để cập nhật phiên bản mới nhất. Khi cập nhật Gazeb
     sudo apt-get install ros-melodic-socketcan-bridge
     sudo apt-get install can-utils
 
+<a name = "Taonode"></a>
 ## 7. Tạo public/subscribe/serial node
 
 [radar package](https://github.com/giangtin1920/radar_pkg)
 
+<a name = "SSH"></a>
 ## 8. Cài SSH
 
 https://wiki.matbao.net/ssh-la-gi-cach-dung-ssh-trao-doi-du-lieu-voi-server-linux/
@@ -86,8 +112,20 @@ https://wiki.matbao.net/ssh-la-gi-cach-dung-ssh-trao-doi-du-lieu-voi-server-linu
     sudo apt-get install openssh-server
     sudo nano /etc/ssh/sshd_config
     sudo service ssh status
+
+<a name = "Submodules"></a>
+## 9. Submodule
+
+Thêm 1 submodules vào repo có sẵn:
+
+    git config submodule.recurse true
+    git submodule add https://github.com/giangtin1920/userROS.git
     
-## 9.
+Clone 1 repo có sẵn 1 submodules:
+
+    git clone https://github.com/giangtin1920/userROS.git
+    git config submodule.recurse true
+    git submodule update --init
    
 
 
