@@ -18,6 +18,8 @@
 
 [9. Submodule](#Submodules)
 
+[10. usbCAN](#usbCAN)
+
 <a name = "Taoworkspace"></a>
 ## 1. Tạo workspace
 
@@ -126,7 +128,39 @@ Clone 1 repo có sẵn 1 submodules:
     git clone https://github.com/giangtin1920/userROS.git
     git config submodule.recurse true
     git submodule update --init
-   
+ 
+
+<a name = "usbCAN"></a> 
+## 10. usbCAN
+
+[USB-CAN USB2CAN adapter](https://vi.aliexpress.com/item/4000045445478.html?spm=a2g0o.productlist.0.0.3d471aecyULEVA&algo_pvid=022b6bf8-fdf5-48ce-b676-9b29fb85163f&algo_exp_id=022b6bf8-fdf5-48ce-b676-9b29fb85163f-8&pdp_ext_f=%7B%22sku_id%22%3A%2210000000102107671%22%7D)
+
+Cài tools cần thiết:
+
+    sudo apt install net-tools
+    sudo apt-get install can-utils
+
+Load the kernel modules we need for CAN:
+
+    sudo modprobe can
+    sudo modprobe can_raw
+    sudo modprobe slcan
+    
+    Automatically load the SocketCAN kernel modules on boot:
+    sudo nano /etc/modules
+
+Installing a CAN device requires loading the can_dev module and configuring the IP link to specify the CAN bus bitrate: s8 - 1000 Kbit/s
+
+    sudo slcand -o -c -f -s8 /dev/ttyUSB1 slcan0
+    sudo ifconfig slcan0 up
+    
+Now check that the interface has been added successfully:
+ 
+    ip addr
+        CAN identifier: 456h
+        CAN data: 00h FFh AAh 55h 01h 02h 03h 04h (8 bytes)
+        To send this CAN message using our can0 CAN network interface:
+    cansend slcan0 456#00FFAA5501020304
 
 
 
