@@ -20,6 +20,8 @@
 
 [10. usbCAN](#usbCAN)
 
+[11. Save file log](#saved)
+
 <a name = "Taoworkspace"></a>
 ## 1. Tạo workspace
 
@@ -161,6 +163,13 @@ Now check that the interface has been added successfully:
         CAN data: 00h FFh AAh 55h 01h 02h 03h 04h (8 bytes)
         To send this CAN message using our can0 CAN network interface:
     cansend slcan0 456#00FFAA5501020304
+
+<a name = "saved"></a>
+## 11. Save file from terminal
+
+    command |tee out1.txt
+    
+ 
 
 
 
