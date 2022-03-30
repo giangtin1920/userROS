@@ -22,6 +22,8 @@
 
 [11. Save file log](#saved)
 
+[12. Connect to rosmaster](#rosmaster)
+
 <a name = "Taoworkspace"></a>
 ## 1. Tạo workspace
 
@@ -169,7 +171,9 @@ Now check that the interface has been added successfully:
 
     command |tee out1.txt
     
- 
+## 12. Connect to ROS master
 
+    192.168.0.2 is ip master
+    export ROS_MASTER_URI=192.168.0.2:11311
 
 
