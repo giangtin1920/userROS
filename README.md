@@ -60,13 +60,15 @@
     
     udevadm info --name=/dev/ttyUSBx --attribute-walk
     
+    Tìm ATTRS{idVendor}=="xxxx", ATTRS{idProduct}=="xxxx", ... đúng của cổng USB
+    
     3. Thêm file rules : 
     
     sudo gedit /etc/udev/rules.d/68-usb-HgtA.rules
     
-    4. Thêm dòng sau vào file rules:
+    4. Chạy lệnh `sudo nano /etc/udev/rules.d/68-usb-HgtA.rules` để thêm dòng sau vào file rules:
     
-    SUBSYSTEM=="tty", ATTRS{idVendor}=="1234", ATTRS{idProduct}=="5678", SYMLINK+="your_device_name"
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="xxxx", ATTRS{idProduct}=="xxxx", SYMLINK+="your_device_name"
     
     5. Reload rules:
     
