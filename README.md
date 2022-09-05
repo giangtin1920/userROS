@@ -177,5 +177,7 @@ Now check that the interface has been added successfully:
 
     192.168.0.2 is ip master
     export ROS_MASTER_URI=192.168.0.2:11311
+    
+## 13. Git in Eclipse
 
 
